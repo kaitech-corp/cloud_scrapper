@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Computing Information Retrieval</title>
+</head>
+<body>
+    <h1>Cloud Computing Information Retrieval</h1>
+    
+    <form id="urlForm">
+        <label for="urlInput">Enter URL(s) (comma-separated):</label>
+        <input type="text" id="urlInput" name="urls" required>
+        <button type="submit">Retrieve Information</button>
+    </form>
+
+    <h2>Retrieved Information:</h2>
+    <div id="information"></div>
+
+    <h2>Generated Tags:</h2>
+    <div id="tags"></div>
+
+    <script>
+        document.getElementById('urlForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const urls = document.getElementById('urlInput').value.split(',');
+            const informationDiv = document.getElementById('information');
+            const tagsDiv = document.getElementById('tags');
+
+            // Send API request to your microservice to retrieve information and tags
+            try {
+                const response = await fetch('/scrape', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ urls })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    informationDiv.textContent = JSON.stringify(data);
+					tagsDiv.textContent = data.tags;
+                    console.log(informationDiv.textContent)
+                } else {
+                    informationDiv.textContent = 'Error retrieving information.';
+                    tagsDiv.textContent = '';
+                }
+            } catch (error) {
+                console.error(error);
+                informationDiv.textContent = 'An error occurred.';
+                tagsDiv.textContent = '';
+            }
+        });
+    </script>
+</body>
+</html>

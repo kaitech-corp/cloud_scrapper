@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pydantic
+beautifulsoup4
+requests
+openai
+google-cloud-storage
+google-cloud-secret-manager
+Jinja2
+python-dateutil
