@@ -8,18 +8,19 @@ class GPT:
 
         openai.api_key = get_secret('openAI_api_key')
 
-        model = "gpt-3.5-turbo-instruct"
+        model = "gpt-3.5-turbo-16k-0613"
         role = "Cloud Computing Expert"
         prompt = "Generate 10 tags from the following text data and provide the tags in a list format: " + content
         try:
-            response = openai.Completion.create(
+            response = openai.ChatCompletion.create(
                 model=model,
-                prompt= prompt,
-                max_tokens=300
+                messages=[
+                    {"role": "system", "content": role},
+                    {"role": "user", "content": prompt}
+                ]
             )
             if response and response.choices:
-                tags = response.choices[0].text
-                print(tags)
+                tags = response.choices[0].message.content
                 return tags
             else:
                 # Handle the case where the response is empty or doesn't contain choices

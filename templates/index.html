@@ -15,15 +15,27 @@
     </form>
 
     <h2>Retrieved Information:</h2>
-    <div id="information"></div>
+    <h3>Title</h3>
+    <div id="title"></div>
+
+    <h3>Content</h3>
+    <div id="content"></div>
+
+    <h3>Summary</h3>
+    <div id="summary"></div>
 
     <h2>Generated Tags:</h2>
     <div id="tags"></div>
 
+    <h3>Json</h3>
+    <div id="information"></div>
     <script>
         document.getElementById('urlForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const urls = document.getElementById('urlInput').value.split(',');
+            const titleDiv = document.getElementById('title');
+            const contentDiv = document.getElementById('content');
+            const summaryDiv = document.getElementById('summary');
             const informationDiv = document.getElementById('information');
             const tagsDiv = document.getElementById('tags');
 
@@ -39,9 +51,11 @@
 
                 if (response.ok) {
                     const data = await response.json();
+                    titleDiv.textContent = JSON.stringify(data.title);
+                    contentDiv.textContent = JSON.stringify(data.content);
+                    summaryDiv.textContent = JSON.stringify(data.summary);
+                    tagsDiv.textContent = JSON.stringify(data.tags);
                     informationDiv.textContent = JSON.stringify(data);
-					tagsDiv.textContent = data.tags;
-                    console.log(informationDiv.textContent)
                 } else {
                     informationDiv.textContent = 'Error retrieving information.';
                     tagsDiv.textContent = '';
