@@ -28,34 +28,43 @@ class Urls(BaseModel):
     urls: List[str]
 
 
+import asyncio
+
 @app.post("/scrape")
 async def scrape(urls: Urls):
-    for url in urls.urls:
+    async def process_url(url):
         if not validate_url(url):
             raise HTTPException(status_code=400, detail="Invalid URL")
+
+        try:
+            title, content = await scraper.scrape(url)
+            date_posted = await scraper.scrape_posted_date(url)
+            tags = await gpt.generate_tags(content)
+            summary = await gpt.generate_summary(content)
+            json_obj = create_json(
+                title, content, summary, tags, date_posted, url)
+            await storage.store(json_obj)
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=str(e))
 
     scraper = Scrape()
     gpt = GPT()
     storage = Storage()
 
-    for url in urls.urls:
-        try:
-            title, content = scraper.scrape(url)
-            date_posted = scraper.scrape_posted_date(url)
-            tags = gpt.generate_tags(content)
-            summary = gpt.generate_summary(content)
-            json_obj = create_json(
-                title, content, summary, tags, date_posted, url)
-            storage.store(json_obj)
-        except Exception as e:
-            raise HTTPException(status_code=500, detail=str(e))
+    tasks = [process_url(url) for url in urls.urls]
+
+    try:
+        await asyncio.gather(*tasks)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
     return {"message": "Scraping completed successfully",
-            "tags": tags,
-            "json": json_obj,
-            "title": title,
-            "content": content,
-            "summary": summary}
+            "tags": "Tags have been generated",
+            "json": "Json was created",
+            "title": "Title is known",
+            "content": "Content is ready",
+            "summary": "Summary was retrieved"}
+
 
 
 @app.get('/', response_class=HTMLResponse)
