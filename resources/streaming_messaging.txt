@@ -1,0 +1,90 @@
+
+1. Amazon Kinesis: A platform for real-time data streaming and analytics on AWS.
+
+2. Amazon SQS (Simple Queue Service): A fully managed message queuing service in AWS.
+
+3. Amazon SNS (Simple Notification Service): A publish-subscribe messaging service on AWS.
+
+4. Amazon MQ: A managed message broker service for Apache ActiveMQ on AWS.
+
+5. AWS IoT Core: A managed cloud platform for IoT devices, including messaging.
+
+6. Azure Stream Analytics: Real-time data stream processing on Microsoft Azure.
+
+7. Azure Event Hubs: A scalable event streaming platform in Azure.
+
+8. Azure Service Bus: A messaging service that connects distributed systems on Azure.
+
+9. Azure Event Grid: Event-driven serverless computing on Azure.
+
+10. Google Cloud Pub/Sub: A fully managed real-time messaging service on Google Cloud.
+
+11. Google Cloud Dataflow: A serverless stream and batch data processing service.
+
+12. Google Cloud IoT Core: A fully managed service to connect, manage, and ingest data from IoT devices.
+
+13. IBM Event Streams: A Kafka-based event streaming platform on IBM Cloud.
+
+14. IBM MQ: A managed message queuing service on IBM Cloud.
+
+15. Firebase Cloud Messaging (FCM): A cloud solution for messages on Android, iOS, and web applications.
+
+16. Microsoft Azure IoT Hub: A managed IoT service that connects, monitors, and manages IoT assets.
+
+17. RabbitMQ: An open-source message broker software that can be deployed on various cloud platforms.
+
+18. Apache Kafka: A distributed event streaming platform that can be deployed on cloud infrastructure.
+
+19. NATS (NATS.io): A high-performance, cloud-native messaging system.
+
+20. ActiveMQ: An open-source message broker that can be deployed on cloud servers.
+
+21. Redis Streams: Redis' built-in data structure for real-time data streaming.
+
+22. Confluent Cloud: A fully managed Apache Kafka service in the cloud.
+
+23. Pusher: A real-time WebSocket service for building interactive web and mobile applications.
+
+24. AWS App Runner: A fully managed service for containerized web applications.
+
+25. Azure Logic Apps: A cloud-based service that automates workflows and integrates with messaging.
+
+26. Google Cloud Functions: Event-driven functions that can be triggered by cloud events.
+
+27. IBM Cloud Functions: A serverless compute service that responds to cloud events.
+
+28. Apache Pulsar: An open-source distributed messaging and event streaming platform.
+
+29. AWS Lambda: A serverless compute service that can be triggered by various cloud events.
+
+30. Google Cloud Dataflow: A fully managed stream and batch data processing service on Google Cloud.
+
+1. Amazon MSK (Managed Streaming for Apache Kafka): Amazon MSK is a fully managed service for Apache Kafka, designed for streaming data at scale on AWS.
+
+2. AWS App Runner: AWS App Runner is a fully managed service that makes it easy for developers to build, deploy, and scale containerized web applications quickly.
+
+3. AWS Glue Streaming ETL: AWS Glue Streaming ETL allows users to prepare and transform streaming data using serverless Spark streaming and SQL capabilities.
+
+4. Azure Event Grid: Azure Event Grid is a serverless event bus that simplifies event-driven applications by providing a single programmable model for routing events.
+
+5. Azure Stream Analytics on IoT Edge: Azure Stream Analytics on IoT Edge extends the capabilities of Azure Stream Analytics to the edge, allowing real-time data processing on IoT devices.
+
+6. Google Cloud Pub/Sub Lite: Pub/Sub Lite is a simplified, cost-effective, and globally distributed messaging service on Google Cloud for event ingestion and delivery.
+
+7. Google Cloud Workflows: Google Cloud Workflows is a serverless workflow orchestration service for building event-driven applications.
+
+8. Firebase Cloud Firestore: While Firebase is not new, Firestore is Firebase's real-time NoSQL database that's well-suited for building real-time applications.
+
+9. Confluent Cloud: Confluent Cloud is a fully managed event streaming platform based on Apache Kafka, providing scalability and ease of use for streaming data.
+
+10. Pusher Channels: Pusher Channels is a platform for building real-time web and mobile applications, providing WebSocket-based messaging.
+
+11. Pulumi: Pulumi is an Infrastructure as Code (IaC) platform that enables the creation of cloud infrastructure with real-time updates and event-driven capabilities.
+
+12. NATS Streaming: NATS Streaming is an extension of the NATS messaging system, providing a high-level API for building stateful, durable, and high-performance streaming applications.
+
+13. RabbitMQ Streams: RabbitMQ Streams is an experimental extension for RabbitMQ that adds a streaming protocol to RabbitMQ, designed for event streaming.
+
+14. Apache Pulsar: Apache Pulsar is an open-source, distributed messaging and event streaming platform designed for high-throughput, low-latency messaging.
+
+15. MQTT 5.0: While MQTT itself is not new, MQTT 5.0 is an updated version of the MQTT protocol, offering enhanced features for IoT and real-time messaging.

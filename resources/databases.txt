@@ -1,0 +1,67 @@
+Here are 30 popular databases, both relational and non-relational:
+
+**Relational Databases:**
+
+1. MySQL
+2. PostgreSQL
+3. Microsoft SQL Server
+4. Oracle Database
+5. SQLite
+6. MariaDB
+7. IBM Db2
+8. Amazon RDS (Relational Database Service)
+9. Google Cloud SQL
+10. Snowflake
+11. SAP HANA
+12. CockroachDB
+13. Teradata
+14. Redshift (Amazon Redshift)
+15. Aurora (Amazon Aurora)
+
+**NoSQL Databases:**
+
+16. MongoDB
+17. Cassandra
+18. Redis
+19. Couchbase
+20. Neo4j (Graph Database)
+21. DynamoDB (Amazon DynamoDB)
+22. CouchDB
+23. RavenDB
+24. Elasticsearch
+25. HBase
+26. Firebase Realtime Database
+27. Amazon DocumentDB
+28. ArangoDB
+29. ScyllaDB
+30. InfluxDB
+
+1. **YugabyteDB:** A distributed SQL database designed for high availability and global scalability.
+
+2. **CockroachDB:** An open-source distributed SQL database that offers ACID compliance and scalability.
+
+3. **FaunaDB:** A serverless, globally distributed, and transactional NoSQL database.
+
+4. **TiDB:** An open-source distributed SQL database that combines the best of both SQL and NoSQL.
+
+5. **Neptune (Amazon Neptune):** A fully managed graph database service by AWS for building applications that work with highly connected datasets.
+
+6. **Cosmos DB (Azure Cosmos DB):** A multi-model, globally distributed database service provided by Microsoft Azure.
+
+7. **Aerospike:** A high-performance NoSQL database for real-time, mission-critical applications.
+
+8. **CrateDB:** A distributed SQL database with a focus on real-time analytics.
+
+9. **ScyllaDB:** A highly performant NoSQL database compatible with Apache Cassandra.
+
+10. **Presto:** While not a database itself, Presto is an open-source distributed SQL query engine that can connect to various data sources for fast querying.
+
+11. **Dolt:** An open-source relational database with Git-style versioning for data.
+
+12. **Dgraph:** A distributed, low-latency, and high-throughput graph database.
+
+13. **Greenplum:** An open-source, massively parallel data platform for analytics.
+
+14. **Vitess:** A database clustering system for horizontal scaling of MySQL.
+
+15. **YugaByte Cloud:** A database-as-a-service platform built on YugabyteDB.

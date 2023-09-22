@@ -1,0 +1,61 @@
+1. Apache Airflow: An open-source platform to programmatically author, schedule, and monitor workflows.
+
+2. AWS Step Functions: A serverless orchestration service for building workflows.
+
+3. Google Cloud Composer: A managed Apache Airflow service on Google Cloud.
+
+4. Azure Logic Apps: A service to automate workflows and integrate with services and systems.
+
+5. Kubernetes CronJobs: Native Kubernetes feature for scheduling jobs.
+
+6. Apache NiFi: An open-source data integration tool to automate data flows.
+
+7. Jenkins X: A Kubernetes-native CI/CD solution with built-in automation.
+
+8. HashiCorp Nomad: An orchestration platform for deploying and managing applications.
+
+9. Kubeflow Pipelines: An open-source platform for deploying, monitoring, and managing ML workflows.
+
+10. Apache Oozie: A workflow scheduler for Hadoop.
+
+11. Celery: An open-source distributed task queue for Python.
+
+12. Microsoft Flow: A cloud-based workflow automation platform.
+
+13. IFTTT (If This Then That): A web-based service for creating automation workflows.
+
+14. Apache Camel: A versatile integration framework for connecting systems and applications.
+
+15. Rundeck: An open-source automation and orchestration platform.
+
+16. Pulumi: An infrastructure as code tool that allows you to define and deploy cloud infrastructure.
+
+17. DataRobot: An automated machine learning platform that orchestrates model building.
+
+18. Tempo: An open-source tracing platform for orchestrating distributed applications.
+
+19. Prefect: An open-source workflow management system for data engineering.
+
+20. Amazon ECS: Amazon Elastic Container Service for orchestrating Docker containers.
+
+Newly Developed Cloud Scheduling and Orchestration Services:
+
+1. KEDA (Kubernetes Event-driven Autoscaling): A Kubernetes-based event-driven autoscaling service.
+
+2. Tekton: A Kubernetes-native CI/CD and task automation framework.
+
+3. Dagster: An open-source data orchestrator for machine learning, analytics, and ETL.
+
+4. Argo Workflows: An open-source container-native workflow engine.
+
+5. Flux: A GitOps-based continuous delivery and automation platform.
+
+6. Cortex: A horizontally scalable, horizontally scalable, and highly available Prometheus.
+
+7. Prefect Cloud: A hosted version of Prefect for data workflow orchestration.
+
+8. AWS Data Pipeline: A web service for orchestrating and automating the movement and transformation of data.
+
+9. KubeMQ: A Kubernetes-native message broker and message queue system.
+
+10. Google Cloud Workflows: A serverless workflow automation platform on Google Cloud.

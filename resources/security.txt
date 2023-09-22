@@ -1,0 +1,39 @@
+1. IBM Cloud Security Advisor: IBM's security and compliance management platform.
+
+2. HashiCorp Vault: An open-source tool for secrets management and data protection.
+
+3. Trend Micro Cloud One: A security services platform for cloud environments.
+
+4. Palo Alto Networks Prisma Cloud: Cloud-native security platform for protecting applications and data.
+
+5. Netskope: A cloud security platform for data and threat protection.
+
+6. Symantec CloudSOC: Cloud security and compliance solution from Symantec.
+
+7. Qualys Cloud Platform: A cloud-based security and compliance platform.
+
+8. Okta Identity Cloud: Identity and access management as a service.
+
+9. Twistlock (Now part of Prisma Cloud): Container security platform for cloud-native applications.
+
+10. Alcide: Kubernetes security platform for cloud-native environments.
+
+11. Aqua Security Trivy: An open-source vulnerability scanner for containers and applications.
+
+12. Bridgecrew (Now part of Palo Alto Networks): A cloud security posture management (CSPM) platform.
+
+13. Wiz: A cloud security platform for risk detection and remediation.
+
+14. Snyk: A developer-first security platform for cloud-native applications.
+
+15. Cyral (Now part of Imperva): A data security platform for cloud services.
+
+16. VGS (Very Good Security): A data security platform for protecting sensitive data.
+
+17. Fugue: A cloud security and compliance automation platform.
+
+18. Dome9 (Now part of Check Point Software Technologies): A cloud security platform for public clouds.
+
+19. Cavirin (Now part of Qualys): A cloud security and compliance solution.
+
+20. Bridgecrew: An open-source codified cloud security platform.

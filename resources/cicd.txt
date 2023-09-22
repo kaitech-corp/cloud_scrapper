@@ -1,0 +1,89 @@
+1. Jenkins: An open-source automation server.
+
+2. Travis CI: A cloud-based CI/CD platform.
+
+3. CircleCI: A CI/CD platform that automates the software development process.
+
+4. GitLab CI/CD: Part of the GitLab platform for complete DevOps.
+
+5. GitHub Actions: GitHub's CI/CD service.
+
+6. Bamboo: A CI/CD server by Atlassian.
+
+7. TeamCity: A CI/CD server by JetBrains.
+
+8. JFrog Pipelines: Part of the JFrog platform for DevOps.
+
+9. Codeship: A cloud-based CI/CD platform.
+
+10. Travis CI: A CI/CD service that works well with GitHub.
+
+11. Semaphore: A hosted CI/CD service.
+
+12. Bitbucket Pipelines: CI/CD integrated with Bitbucket.
+
+13. AppVeyor: A CI/CD service for Windows.
+
+14. Cirrus CI: A CI/CD service for GitHub.
+
+15. Drone: A container-native CI/CD platform.
+
+16. Buildkite: A CI/CD platform for building and deploying code.
+
+17. Wercker: A container-centric CI/CD service.
+
+18. Strider: An open-source CI/CD platform.
+
+19. Concourse: An open-source CI/CD system.
+
+20. Shippable: A CI/CD platform for DevOps automation.
+
+21. GoCD: An open-source CI/CD server.
+
+22. Render: A cloud platform for building and scaling web applications.
+
+23. Semaphore: A hosted CI/CD service for Docker-based applications.
+
+24. Launchable: A CI/CD tool for predictive test selection.
+
+25. Buddy: A DevOps automation platform.
+
+26. BuildMaster: An automated deployment tool.
+
+27. CirclCI: A CI/CD platform with a focus on containers.
+
+28. Codefresh: A CI/CD platform for Kubernetes.
+
+29. Shippable: A CI/CD platform with a focus on Docker.
+
+30. Wercker: A CI/CD platform that automates development pipelines.
+
+1. Vercel: A platform for frontend and serverless deployments.
+
+2. Render: A cloud platform for web application hosting.
+
+3. Buildpacks.io: A platform for building and updating container images.
+
+4. LambCI: A serverless CI/CD platform.
+
+5. GoCD: An open-source continuous delivery server.
+
+6. Tekton: A Kubernetes-native framework for CI/CD.
+
+7. Semaphore: A hosted CI/CD service for Docker.
+
+8. Codefresh: A CI/CD platform for Kubernetes.
+
+9. BuildMaster: An automated deployment tool.
+
+10. CirclCI: A CI/CD platform with a focus on containers.
+
+11. Buildkite: A CI/CD platform for building and deploying code.
+
+12. Concourse: An open-source CI/CD system.
+
+13. Buddy: A DevOps automation platform.
+
+14. Launchable: A CI/CD tool for predictive test selection.
+
+15. Cirrus CI: A CI/CD service for GitHub.
