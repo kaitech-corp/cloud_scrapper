@@ -12,7 +12,7 @@ from storage import Storage
 from utils import validate_url, create_json
 from starlette.middleware.cors import CORSMiddleware
 from google.cloud import pubsub_v1
-from concurrent.futures import TimeoutError
+from concurrent.futures import TimeoutError, ThreadPoolExecutor
 
 app = FastAPI()
 
@@ -56,12 +56,13 @@ async def process_pubsub_messages():
         try:
             # Process the URL from the received message
             url = message.data.decode("utf-8")
-            print(url)
-            process_url(url)
+            asyncio.run(process_url(url)) 
             message.ack()
-            print(f"Processed message from Pub/Sub")
+            print(f"Processed message from Pub/Sub. Link: {url}")
+            
         except Exception as e:
-            print(f"Error processing message: {str(e)}")
+            url = message.data.decode("utf-8")
+            print(f"Error processing message: {str(e)}. Link: {url}")
 
     # Subscribe to the Pub/Sub subscription and start listening
     subscription_path = subscriber_client.subscription_path(
@@ -70,27 +71,24 @@ async def process_pubsub_messages():
     streaming_pull_future = subscriber_client.subscribe(
         subscription_path, callback=callback
     )
-    timeout = 5.0
     # Keep the function running to continue processing messages
     # Wrap subscriber in a 'with' block to automatically call close() when done.
-    with subscriber_client:
-        try:
+    # with subscriber_client:
+        # try:
             # When `timeout` is not set, result() will block indefinitely,
             # unless an exception is encountered first.
-            streaming_pull_future.result(timeout=timeout)
-        except TimeoutError:
-            streaming_pull_future.cancel()  # Trigger the shutdown.
-            streaming_pull_future.result()  # Block until the shutdown is complete.
+    await streaming_pull_future.result()
+        # except TimeoutError:
+        #     streaming_pull_future.cancel()  # Trigger the shutdown.
+        #     streaming_pull_future.result()  # Block until the shutdown is complete.
 
 
 @app.post("/scrape")
 async def scrape(urls: Urls):
-    if not urls:
-        raise HTTPException(status_code=400, detail="Invalid URL")
-
     # Send each URL as a message to Pub/Sub
     for url in urls.urls:
         send_message_to_pubsub(url)
+        # print("Link: " + url)
 
     return {"message": "URLs queued for scraping"}
 
@@ -99,7 +97,6 @@ async def scrape(urls: Urls):
 
 async def process_url(url):
     if not validate_url(url):
-        print(e)
         raise HTTPException(status_code=400, detail="Invalid URL")
 
     try:
@@ -119,36 +116,6 @@ async def process_url(url):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-# @app.post("/scrape")
-# async def scrape(urls: Urls):
-#     for url in urls.urls:
-#         if not validate_url(url):
-#             raise HTTPException(status_code=400, detail="Invalid URL")
-
-#     scraper = Scrape()
-#     gpt = GPT()
-#     storage = Storage()
-
-#     for url in urls.urls:
-#         try:
-#             title, content = scraper.scrape(url)
-#             date_posted = scraper.scrape_posted_date(url)
-#             tags = gpt.generate_tags(content)
-#             summary = gpt.generate_summary(content)
-#             json_obj = create_json(
-#                 title, content, summary, tags, date_posted, url)
-#             storage.store(json_obj)
-#         except Exception as e:
-#             raise HTTPException(status_code=500, detail=str(e))
-
-#     return {"message": "Scraping completed successfully",
-#             "tags": tags,
-#             "json": json_obj,
-#             "title": title,
-#             "content": content,
-#             "summary": summary}
-
-
 @app.get('/', response_class=HTMLResponse)
 async def hello(request: Request):
     """Return a friendly HTTP greeting."""
@@ -157,11 +124,19 @@ async def hello(request: Request):
     return templates.TemplateResponse("index.html", {"request": request, "message": message, })
 
 
-# Execute the application when the script is run
-if __name__ == "__main__":
+# Function to start the FastAPI application
+def start_fastapi_server():
     # Get the server port from the environment variable
     server_port = os.environ.get("PORT", "8080")
 
     # Run the FastAPI application
     uvicorn.run(app, host="0.0.0.0", port=int(server_port))
-    process_pubsub_messages()
+
+if __name__ == "__main__":
+    # Create a ThreadPoolExecutor to run the FastAPI server and Pub/Sub message processing concurrently
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        # Start the FastAPI server in one thread
+        executor.submit(start_fastapi_server)
+
+        # Start Pub/Sub message processing in another thread
+        asyncio.run(process_pubsub_messages())
