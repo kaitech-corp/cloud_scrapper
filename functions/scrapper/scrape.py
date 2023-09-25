@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 import dateutil.parser as dparser
 import requests
-import datetime
 
 from utils import remove_unwanted_characters
 

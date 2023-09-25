@@ -1,0 +1,20 @@
+1. Amazon Simple Queue Service (SQS) - Amazon Web Services' fully managed message queuing service.
+2. Amazon Simple Notification Service (SNS) - AWS's fully managed messaging service for pub/sub communication.
+3. Amazon EventBridge - A serverless event bus service by AWS.
+4. Apache Kafka on AWS MSK - Managed Apache Kafka service by AWS.
+5. Google Cloud Pub/Sub - Google Cloud's real-time messaging service.
+6. Google Cloud IoT Core - Google Cloud's IoT device management service.
+7. Google Cloud Tasks - Google Cloud's asynchronous task execution service.
+8. Microsoft Azure Service Bus - A fully managed message broker service on Azure.
+9. Microsoft Azure Event Hubs - Azure's event streaming platform.
+10. Microsoft Azure IoT Hub - Azure's IoT device management service.
+11. IBM Cloud Message Hub - IBM's message broker for scalable, distributed, and fault-tolerant messaging.
+12. IBM MQ on IBM Cloud - Managed IBM MQ (Message Queue) service on the IBM Cloud.
+13. RabbitMQ - An open-source message broker that can be deployed on various cloud platforms.
+14. NATS - An open-source, lightweight, and high-performance messaging system.
+15. Apache Pulsar - An open-source pub/sub messaging system that can be deployed on cloud platforms.
+16. Kinesis Data Streams - AWS's real-time data streaming service.
+17. CloudAMQP - Managed RabbitMQ service available on multiple cloud platforms.
+18. ActiveMQ - An open-source message broker that can be deployed on various cloud platforms.
+19. Aiven for Apache Kafka - Managed Apache Kafka service available on different clouds.
+20. Redis Pub/Sub - Redis-based publish/subscribe messaging system, often used as a message broker.

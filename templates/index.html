@@ -10,9 +10,9 @@
 
     <form id="urlForm">
       <label for="urlInput">Enter URL(s) (comma-separated):</label>
-      <input type="text" id="urlInput" name="urls" required />
-      <button type="submit">Retrieve Information</button>
-    </form>
+      <textarea id="urlInput" name="urls" rows="5" required></textarea>
+      <button onclick="fetchData()">Retrieve Information</button>
+    </form>    
 
     <h2>Retrieved Information:</h2>
     <h3>Title</h3>
@@ -32,6 +32,18 @@
     <script>
       document
         .getElementById("urlForm")
+        // async function fetchData() {
+        // const urls = document
+        //   .getElementById("urlInput")
+        //   .value.split(",");
+        //   const response = await fetch("/scrape", {
+        //     method: "POST",
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify({ urls }),
+        //   });
+        // }
         .addEventListener("submit", async (e) => {
           e.preventDefault();
           const urls = document.getElementById("urlInput").value.split(",");
@@ -43,7 +55,7 @@
 
           // Send API request to your microservice to retrieve information and tags
           try {
-            const response = fetch("/scrape", {
+            fetch("/scrape", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",

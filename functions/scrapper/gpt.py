@@ -1,5 +1,4 @@
 import openai
-import os
 from google_secrets import get_secret
 
 

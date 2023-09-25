@@ -1,0 +1,8 @@
+pydantic
+beautifulsoup4
+requests
+openai
+google-cloud-storage
+google-cloud-secret-manager
+python-dateutil
+functions-framework==3.*

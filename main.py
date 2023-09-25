@@ -1,15 +1,12 @@
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 import uvicorn
 import os
 import asyncio
+import requests
 from pydantic import BaseModel
 from typing import List
-from scrape import Scrape
-from gpt import GPT
-from storage import Storage
-from utils import validate_url, create_json
 from starlette.middleware.cors import CORSMiddleware
 from google.cloud import pubsub_v1
 from concurrent.futures import TimeoutError, ThreadPoolExecutor
@@ -56,7 +53,7 @@ async def process_pubsub_messages():
         try:
             # Process the URL from the received message
             url = message.data.decode("utf-8")
-            asyncio.run(process_url(url)) 
+            process_url_with_cloud_function(url)
             message.ack()
             print(f"Processed message from Pub/Sub. Link: {url}")
             
@@ -83,6 +80,33 @@ async def process_pubsub_messages():
         #     streaming_pull_future.result()  # Block until the shutdown is complete.
 
 
+
+def process_url_with_cloud_function(url):
+    # Define the Cloud Function URL
+    cloud_function_url = "https://scrapper-xaoktxu34q-uc.a.run.app"
+
+    # Define the input data as a dictionary
+    data = {
+        "url": url
+    }
+
+    try:
+        # Send a POST request to the Cloud Function
+        response = requests.post(cloud_function_url, json=data)
+
+        # Check the response
+        if response.status_code == 200:
+            # Request was successful
+            # result = response.json()
+            return "Result Successful"
+        else:
+            # Request encountered an error
+            return {"error": f"Error {response.status_code}: {response.text}"}
+    except Exception as e:
+        # Handle any exceptions that may occur during the request
+        return {"error": f"An error occurred: {str(e)}"}
+
+
 @app.post("/scrape")
 async def scrape(urls: Urls):
     # Send each URL as a message to Pub/Sub
@@ -91,30 +115,6 @@ async def scrape(urls: Urls):
         # print("Link: " + url)
 
     return {"message": "URLs queued for scraping"}
-
-# Function to process the url
-
-
-async def process_url(url):
-    if not validate_url(url):
-        raise HTTPException(status_code=400, detail="Invalid URL")
-
-    try:
-        scraper = Scrape()  # Create a new instance of Scraper inside the coroutine
-        gpt = GPT()  # Create a new instance of GPT inside the coroutine
-        storage = Storage()  # Create a new instance of Storage inside the coroutine
-
-        title, content = scraper.scrape(url)
-        date_posted = scraper.scrape_posted_date(url)
-        tags = gpt.generate_tags(content)
-        summary = gpt.generate_summary(content)
-        json_obj = create_json(
-            title, content, summary, tags, date_posted, url)
-        storage.store(json_obj)
-    except Exception as e:
-        print(e)
-        raise HTTPException(status_code=500, detail=str(e))
-
 
 @app.get('/', response_class=HTMLResponse)
 async def hello(request: Request):
